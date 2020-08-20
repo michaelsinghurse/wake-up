@@ -7,7 +7,8 @@ Node script to ping a website.
 Many developers, including me, host their side projects on [Heroku](https://heroku.com/). 
 Heroku offers a free tier which provides 550 free hours per month (or 1,000 if 
 you verify with a credit card), but one of the drawbacks is that your app will 
-go to sleep if it doesn't have any traffic in 30 minutes. Waking a sleep app 
+go to sleep if it doesn't have any traffic in 30 minutes 
+[Heroku Pricing](https://www.heroku.com/pricing). Waking a sleep app 
 involves starting the dyno (i.e. Linux container) the app is running on. I've 
 seen a sleeping app take over 20 seconds to load. If you're a developer, and 
 you're demonstrating your website to a potential client or employer, having 
@@ -30,9 +31,9 @@ thought, I could easily write my own cron job to keep the site awake.
 
 ## Installation
 
-I set up a cron job of three operating systems and so would like to provide some
-details on how  you can do so as well. The first step obviously is downloading
-the code and making sure you have Node installed. 
+I set up cron jobs and tested the script on Linux, Mac, and Windows machines, and 
+would like to provide some details on how you can do so as well. The first 
+step for each of these is downloading the code and making sure you have Node installed. 
 
 ### Linux Ubuntu
 
