@@ -30,6 +30,10 @@ thought, I could easily write my own cron job to keep the site awake.
 
 ## Installation
 
+I set up a cron job of three operating systems and so would like to provide some
+details on how  you can do so as well. The first step obviously is downloading
+the code and making sure you have Node installed. 
+
 ### Linux Ubuntu
 
 ### macOS
