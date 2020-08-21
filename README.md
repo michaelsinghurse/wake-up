@@ -17,6 +17,7 @@ or employer, having your website take 10 seconds to load will not win you much
 work.
 
 So, then, how can you prevent your app from sleeping?  
+
 There are several websites out there that claim to keep your Heroku app awake for you.
 Just give them your url, and they will ping your site periodically. 
 I didn't want to go this route, however, for a couple reasons. First, I
@@ -27,16 +28,37 @@ want any single app to have insomnia and burn through all my hours. Second, as a
 relative newcomer to the Ubuntu operating system, I had never set up a cron job,
 and I saw this as a wonderful opportunity to learn how.
 
-## Specs
+## Getting Starting 
 
+Simply download the `wakeUp.js` file and run it with Node. It takes one
+argument, the url for the website you want to ping. Be sure to include the
+scheme (http or https).
 
-## Installation
+From the command line:
+
+```
+$ node wakeUp.js http://www.example.com/
+```
+
+The script will log the results of the request to a log file. By default, the
+log file is named `wakeUp.js.log` and will be in the same directory as the
+script. This is something you can customize if you wish, by changing the value
+of `logFile` in the function `logMessage`.
+
+A line of output in the log file looks like this:
+
+```
+Date, time, URL, response-status-code, response-time-ms,
+response-body-size-bytes
+```
+## Configuring Cron Job 
 
 I set up cron jobs and tested the script on Linux, Mac, and Windows machines, and 
 would like to provide some details on how you can do so as well. The first 
-step for each of these is downloading the code and making sure you have Node installed. 
+step, of course, for each of these is downloading the script and making sure
+you have Node installed. 
 
-### Linux Ubuntu
+### Ubuntu
 
 ### macOS
 
