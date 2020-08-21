@@ -109,9 +109,10 @@ app. Here are the steps I took to have it run every 10 minutes:
 
 1. `Start` > `Windows Administrative Tools` > `Task Scheduler`
 2. Right click the `Task Scheduler Library` folder in the left pane and select
-   `New Folder...`. Name the folder whatever you'd like, e.g. "My Tasks". Do
-   this to keep the operating system tasks separate from your own.
-3. Select your newly created folder, then go to the top menu bar and select
+   `New Folder...`. Name the folder whatever you'd like, e.g. "My Tasks". This
+   isn't a required step, but it helps keep the operating system tasks separate 
+   from your own.
+3. Select your newly created folder, and then go to the menu bar and select
    `Action` > `Create Task...`.
 4. On the `General` tab, give your task a name and description. The other
    defaults are fine.
@@ -124,16 +125,17 @@ app. Here are the steps I took to have it run every 10 minutes:
 6. On the `Actions` tab, select `Start a program`. Enter the address to the Node
    executable in the `Program/script` input box. Make sure to wrap the address
    in quotes if it contains spaces, e.g. `"C:\Program Files\nodejs\node.exe"`.
-   For the arguments input box, enter the address to the script and the website
-   to ping. For me, I entered `C:\Projects\wake_up\wakeUp.js
-   https://www.example.com`.
+   For the arguments input box, enter the address to the JavaScript file and the 
+   website you want to keep awake. For me, I entered `C:\Projects\wake_up\wakeUp.js
+   https://www.example.com`. (Note the space between the two arguments.)
 7. On the `Conditions` tab, the defaults are fine.
 8. On the `Settings` tab, I checked the box for `Run task as soon as possible
    after a scheduled start is missed` and left the others as default.
-9. Next click `OK` and you should be good to go!
-10. Check the `wakeUp.js.log` to make sure it's running properly. If not, double 
-   check your arguments on the `Actions` tab or the schedule on the `Triggers` tab.
-   Those are the two tabs that gave me trouble.
+9. Finally, click `OK` to finish completing the task, and you should be good to go!
+
+You can check the `wakeUp.js.log` file to make sure your task is running 
+properly. If not, double check your arguments on the `Actions` tab and the 
+schedule on the `Triggers` tab. Those are the two areas that gave me trouble.
 
 ### macOS
 
