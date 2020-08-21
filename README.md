@@ -82,23 +82,24 @@ For my cron job, I decided to have it run every 10 minutes. Here is what my
 crontab looks like:
 
 ```
-PATH = /usr/bin:/bin:/home/michael/.nvm/versions/node/v13.11.0/bin
-*/10 * * * * node /home/michael/projects/wake_up/wakeUp.js
-https://salestaxsearch.com
+PATH = /usr/bin:/bin:/path/to/node/bin
+*/10 * * * * node /path/to/wakeUp.js http://example.com
 
 ```
 
-Notes:
-1. I had to include the `PATH` definition on line 1 so that the cron daemon that
-   runs the job knows where to find the program `node` on line 2. I tell it to look
-   in the `home/michael/.nvm/...` folder. To find where your version of node is
-   located, type `which node` on the command line.
+Note:
+1. I had to include the `PATH` definition on line 1 so that the cron daemon 
+   knows where to find the name `node` on line 2. To find the path to your 
+   version of Node, enter `which node` on the command line.
 2. `*/10 * * * *` means to run the job every 10 minutes every day. If I 
    wanted it to run every 30 minutes, I would do `*/30 * * * *`. If I wanted it
    to run every 10 minutes on weekdays only, I would do `*/10 * * * 1-5`.
 3. The third line is empty. Each command in the crontab file must end in a
    newline character or the daemon won't run it.
 
+If you follow these steps, and you find there is no output to the log file,
+you may want to check your cron log file `/var/log/syslog` to see if the job 
+is running.
 
 ### macOS
 
