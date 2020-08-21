@@ -1,30 +1,32 @@
-# wake-up
+# Wake Up 
 
-Node script to ping a website.
+Wake Up is a Node script that pings the website you specify and logs a few basic
+metrics about the response. It is meant to be configured as cron job. 
 
 ## Motivation
 
-Many developers, including me, host their side projects on [Heroku](https://heroku.com/). 
+Many developers, myself included, host their side projects on [Heroku](https://heroku.com/). 
 Heroku offers a free tier which provides 550 free hours per month (or 1,000 if 
 you verify with a credit card), but one of the drawbacks is that your app will 
-go to sleep if it doesn't have any traffic in 30 minutes 
+go to sleep after 30 minutes if it doesn't have any traffic
 [Heroku Pricing](https://www.heroku.com/pricing). Waking a sleep app 
-involves starting the dyno (i.e. Linux container) the app is running on. I've 
+involves starting the dyno (i.e. Linux container) the app is running on. Just
+like starting your own computer, this takes several seconds to do. I've 
 seen a sleeping app take over 20 seconds to load. If you're a developer, and 
 you're demonstrating your website to a potential client or employer, having 
-your website take 20 seconds to load will win you much work.
+your website take 20 seconds to load will not win you much work.
 
-So, then, how can you prevent your app from sleeping? One way to do is to simply
-to go to your website before demo'ing it to someone. Say if you have an interview 
-in a few minutes, pull out your phone and browse to your website to wake it up.
-But what if you don't know when people will be viewing your website? A simple Google 
-search will reveal a few websites that claim to keep your Heroku dyno awake for you.
+So, then, how can you prevent your app from sleeping? With a simple Google 
+search, you can find a few websites that claim to keep your Heroku app awake for you.
 All you need to do is given them your url and they will ping your site every so
-often. I didn't want to go this route because I didn't want to give them
-control over how often they pinged my site. The free hours have a cap, and I was
-afraid that they would keep my app awake all night and use up all my free hours. I
-only wanted it to be awake more or less during the business day. Plus, I
-thought, I could easily write my own cron job to keep the site awake.
+often. I didn't want to go this route, however, for two reasons. The first is I
+didn't want to give a third-party control over how often my dyno is running.
+Given that I only have a fixed number of hours per month, and I could
+potentially have several apps running on the free tier at any one time, I didn't
+want my apps to have insomnia and burn through all my hours. The second reason I
+didn't want to use one of these services is because I wanted to do it myself.
+As a relative newcomer to the Ubuntu operating system, I have never set up a
+cron job, and I thought this was a perfect opportunity to learn how. 
 
 ## Specs
 
