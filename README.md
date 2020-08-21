@@ -31,7 +31,7 @@ and I saw this as a wonderful opportunity to learn how.
 ## Getting Starting 
 
 Simply download the `wakeUp.js` file and run it with Node. It takes one
-argument, the url for the website you want to ping. Be sure to include the
+argument, the URL for the website you want to ping. Be sure to include the
 scheme (http or https).
 
 From the command line:
@@ -40,17 +40,19 @@ From the command line:
 $ node wakeUp.js http://www.example.com/
 ```
 
-The script will log the results of the request to a log file. By default, the
-log file is named `wakeUp.js.log` and will be in the same directory as the
-script. This is something you can customize if you wish, by changing the value
-of `logFile` in the function `logMessage`.
-
-A line of output in the log file looks like this:
+The script will log the results of the request to a log file. Each line of ouput
+has the following format:
 
 ```
-Date, time, URL, response-status-code, response-time-ms,
-response-body-size-bytes
+Date, time, URL, res-status-code, res-time, res-body-size
 ```
+
+If there is an error, the script will log the date, time, and error message.
+
+By default, the log file is named `wakeUp.js.log` and will be in the same 
+directory as the script. If you wish to change the name or location of
+the log file, edit the value of `logFile` in the function `logMessage`.
+
 ## Configuring Cron Job 
 
 I set up cron jobs and tested the script on Linux, Mac, and Windows machines, and 
