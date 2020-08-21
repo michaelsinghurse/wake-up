@@ -102,6 +102,38 @@ A few things to note here...
    `wakeUp.js.log` file, you may want to check your cron log file - 
    `/var/log/syslog` - to see if the job is running.
 
+### Windows 10
+
+The easiest way to set up a cron job on Windows is with the `Task Scheduler`
+app. Here are the steps I took to have it run every 10 minutes:
+
+1. `Start` > `Windows Administrative Tools` > `Task Scheduler`
+2. Right click the `Task Scheduler Library` folder in the left pane and select
+   `New Folder...`. Name the folder whatever you'd like, e.g. "My Tasks". Do
+   this to keep the operating system tasks separate from your own.
+3. Select your newly created folder, then go to the top menu bar and select
+   `Action` > `Create Task...`.
+4. On the `General` tab, give your task a name and description. The other
+   defaults are fine.
+5. On the `Triggers` tab, select the `New...` button at the bottom. For the
+   `Begin the task:` dropdown, select `On a schedule`. Next, select the
+   `One time` radio button. In `Advanced Settings`, select the checkbox for
+   `Repeat task every:` and change the time to 10 minutes or whatever you would
+   like. (Just make sure it's less than 30 minutes if you want to keep your dyno
+   awake.) Then change `for duration of:` to `Indefinitely`.
+6. On the `Actions` tab, select `Start a program`. Enter the address to the Node
+   executable in the `Program/script` input box. Make sure to wrap the address
+   in quotes if it contains spaces, e.g. `"C:\Program Files\nodejs\node.exe"`.
+   For the arguments input box, enter the address to the script and the website
+   to ping. For me, I entered `C:\Projects\wake_up\wakeUp.js
+   https://www.example.com`.
+7. On the `Conditions` tab, the defaults are fine.
+8. On the `Settings` tab, I checked the box for `Run task as soon as possible
+   after a scheduled start is missed` and left the others as default.
+9. Next click `OK` and you should be good to go!
+10. Check the `wakeUp.js.log` to make sure it's running properly. If not, double 
+   check your arguments on the `Actions` tab or the schedule on the `Triggers` tab.
+   Those are the two tabs that gave me trouble.
+
 ### macOS
 
-### Windows 10
