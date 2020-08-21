@@ -5,7 +5,7 @@ metrics about the site's response. It is meant to be configured as a cron job.
 
 ## Motivation
 
-Many developers, myself included, host their side projects on [Heroku](https://heroku.com/). 
+Many developers host their side projects on [Heroku](https://heroku.com/). 
 Heroku offers a free tier which provides 550 free hours per month (or 1,000 if 
 you verify with a credit card), but one of the drawbacks is that your app will 
 go to sleep after 30 minutes if it doesn't have any traffic (see
@@ -16,17 +16,16 @@ If you're a web developer and demonstrating your website to a potential client
 or employer, having your website take 10 seconds to load will not win you much 
 work.
 
-So, then, how can you prevent your app from sleeping? With a simple Google 
-search, you can find websites that claim to keep your Heroku app awake for you.
-All you need to do is given them your url, and they will ping your site every so
-often. I didn't want to go this route, however, for two reasons. The first is I
+So, then, how can you prevent your app from sleeping?  
+There are several websites out there that claim to keep your Heroku app awake for you.
+Just give them your url, and they will ping your site periodically. 
+I didn't want to go this route, however, for a couple reasons. First, I
 didn't want to give a third-party control over how often my dyno is running.
-Given that I only have a fixed number of hours per month, and I could
+Since I have a limited number of hours per month, and I could
 potentially have several apps running on the free tier at any one time, I didn't
-want any apps to have insomnia and burn through all my hours. The second reason I
-didn't want to use one of these services is because I wanted to do it myself.
-As a relative newcomer to the Ubuntu operating system, I have never set up a
-cron job, and I thought this was a perfect opportunity to learn how. 
+want any single app to have insomnia and burn through all my hours. Second, as a
+relative newcomer to the Ubuntu operating system, I had never set up a cron job,
+and I saw this as a wonderful opportunity to learn how.
 
 ## Specs
 
