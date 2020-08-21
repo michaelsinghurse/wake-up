@@ -55,7 +55,7 @@ the log file, edit the value of `logFile` in the function `logMessage`.
 
 ## Configuring a Cron Job 
 
-### Ubuntu
+### Ubuntu and macOS
 
 You can set up a cron job by using the `crontab` program. To add your job,
 enter `crontab -e` at the command line. You'll now be editing the file that
@@ -74,9 +74,9 @@ where...
 - t5 is days of the week from 0-6 (Sunday = 0)
 
 and...
-- an asterisk * in any field means every period
-- a dash - means a range of values
-- a slash / means an increment.
+- an asterisk (\*) in any field means every period
+- a dash (-) means a range of values
+- a forward slash (/) means an increment.
 
 For my cron job, I decided to have it run every 10 minutes. Here is what my
 crontab looks like:
@@ -98,9 +98,12 @@ A few things to note here...
    to run every 10 minutes on weekdays only, I would do `*/10 * * * 1-5`.
 3. The third line is empty. Each command in the crontab file must end in a
    newline character or the daemon won't run it.
-4. If you follow these steps, and you find there is no output to the
-   `wakeUp.js.log` file, you may want to check your cron log file - 
-   `/var/log/syslog` - to see if the job is running.
+
+If you're on Ubuntu, and find there is no output to the
+`wakeUp.js.log` file after following these steps, you might check 
+`/var/log/syslog`to see if the job is running. Specifically, try 
+`$ grep CRON /var/log/syslog` to see only the logs related to cron. I don't
+believe macOS logs cron jobs by default, however. 
 
 ### Windows 10
 
@@ -126,16 +129,18 @@ app. Here are the steps I took to have it run every 10 minutes:
    executable in the `Program/script` input box. Make sure to wrap the address
    in quotes if it contains spaces, e.g. `"C:\Program Files\nodejs\node.exe"`.
    For the arguments input box, enter the address to the JavaScript file and the 
-   website you want to keep awake. For me, I entered `C:\Projects\wake_up\wakeUp.js
+   website you want to keep awake. I entered `C:\Projects\wake_up\wakeUp.js
    https://www.example.com`. (Note the space between the two arguments.)
 7. On the `Conditions` tab, the defaults are fine.
 8. On the `Settings` tab, I checked the box for `Run task as soon as possible
    after a scheduled start is missed` and left the others as default.
-9. Finally, click `OK` to finish completing the task, and you should be good to go!
+9. Finally, click `OK` to finish creating the task, and you should be good to go!
 
 You can check the `wakeUp.js.log` file to make sure your task is running 
 properly. If not, double check your arguments on the `Actions` tab and the 
 schedule on the `Triggers` tab. Those are the two areas that gave me trouble.
 
-### macOS
+## Author
+- Michael Singhurse
+- michaelsinghurse@gmail.com
 
