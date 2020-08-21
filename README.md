@@ -87,19 +87,20 @@ PATH = /usr/bin:/bin:/path/to/node/bin
 
 ```
 
-Note:
-1. I had to include the `PATH` definition on line 1 so that the cron daemon 
+Notes:
+1. I included the `PATH` definition on line 1 so that the cron daemon 
    knows where to find the name `node` on line 2. To find the path to your 
-   version of Node, enter `which node` on the command line.
+   version of Node, enter `which node` on the command line. Alternatively, 
+   rather than defining `PATH` on line 1, you could just give the 
+   absolute path to Node on line 2, e.g. replace `node` with `/path/to/node`.
 2. `*/10 * * * *` means to run the job every 10 minutes every day. If I 
    wanted it to run every 30 minutes, I would do `*/30 * * * *`. If I wanted it
    to run every 10 minutes on weekdays only, I would do `*/10 * * * 1-5`.
 3. The third line is empty. Each command in the crontab file must end in a
    newline character or the daemon won't run it.
-
-If you follow these steps, and you find there is no output to the log file,
-you may want to check your cron log file `/var/log/syslog` to see if the job 
-is running.
+4. If you follow these steps, and you find there is no output to the log file, 
+   you may want to check your cron log file `/var/log/syslog` to see if the job 
+   is running.
 
 ### macOS
 
