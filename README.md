@@ -1,7 +1,7 @@
 # Wake Up 
 
 Wake Up is a Node script that pings a website and logs a few basic
-metrics about the site's response. It is meant to be configured as cron job. 
+metrics about the site's response. It is meant to be configured as a cron job. 
 
 ## Motivation
 
