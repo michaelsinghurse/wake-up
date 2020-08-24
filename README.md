@@ -1,19 +1,20 @@
 # Wake Up 
 
-Wake Up is a Node script that pings a website and logs a few basic
-metrics about the site's response. It is meant to be configured as a cron job. 
+Wake Up is a Node script that sends an HTTP get request to a website and logs 
+a few basic metrics about the site's response. It is meant to be configured 
+as a cron job. 
 
 ## Motivation
 
 Many developers host their side projects on [Heroku](https://heroku.com/). 
 Heroku offers a free tier which provides a capped number of free  hours per
-month, but one of the drawbacks is that your app will 
+month, but one of the limitations is that your app will 
 go to sleep after 30 minutes if it doesn't receive any traffic (see
 [Heroku Pricing](https://www.heroku.com/pricing)). Waking a sleeping app 
 involves starting the dyno (i.e. Linux container) the app is running on. Just
 like starting your own computer, this takes several seconds. 
 If you're a web developer and demonstrating your website to a potential client 
-or employer, having it take 10 seconds to load will not win you much work.
+or employer, having it take 10 seconds to load is a problem.
 
 So, then, how can you prevent your app from sleeping?  
 
@@ -30,7 +31,7 @@ and I saw this as a wonderful opportunity to learn how.
 ## Getting Starting 
 
 Simply download the `wakeUp.js` file and run it with Node. It takes one
-argument, the URL for the website you want to ping. Be sure to include the
+argument, the URL for the website you want to request. Be sure to include the
 scheme (http or https).
 
 From the command line:
@@ -82,7 +83,7 @@ crontab file looks like:
 
 ```
 PATH = /usr/bin:/bin:/path/to/node/bin
-*/10 * * * * node /path/to/wakeUp.js http://example.com
+*/10 * * * * node /path/to/wakeUp.js http://www.example.com
 
 ```
 
@@ -102,7 +103,7 @@ A few things to note here...
 
 After saving and closing the crontab file, you can go back to the folder that
 contains the `wakeUp.js` script and look for the log file. If the cron job is
-working properly, you will see new entries to the log at the increment that you
+working properly, you will see new entries to the file at the increment that you
 specified.
 
 If it's not working, and you're on Ubuntu, you might check `/var/log/syslog` to 
@@ -136,7 +137,7 @@ app. Here are the steps to take:
    in quotes if it contains spaces, e.g. `"C:\Program Files\nodejs\node.exe"`.
    For the arguments input box, enter the address to the script and the 
    website you want to keep awake. I entered `C:\Projects\wake_up\wakeUp.js
-   https://www.example.com`. (Note the space between the two arguments.)
+   http://www.example.com`. (Note the space between the two arguments.)
 7. On the `Conditions` tab, the defaults are fine.
 8. On the `Settings` tab, I checked the box for `Run task as soon as possible
    after a scheduled start is missed` and left the others as default.
